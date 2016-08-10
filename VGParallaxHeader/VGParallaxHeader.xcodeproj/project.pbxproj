@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64C332B92F8F2B47EAB69D40 /* Pods_VGParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4EEBA4E43FE4EEBAE1C224 /* Pods_VGParallaxHeader.framework */; };
+		D874EBB31D5B6790002FB39E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874EBB21D5B6790002FB39E /* AppDelegate.swift */; };
+		D874EBB51D5B6791002FB39E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874EBB41D5B6791002FB39E /* ViewController.swift */; };
+		D874EBB81D5B6791002FB39E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D874EBB61D5B6791002FB39E /* Main.storyboard */; };
+		D874EBBA1D5B6791002FB39E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D874EBB91D5B6791002FB39E /* Assets.xcassets */; };
+		D874EBBD1D5B6791002FB39E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D874EBBB1D5B6791002FB39E /* LaunchScreen.storyboard */; };
+		D874EBC81D5B6791002FB39E /* VGParallaxHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874EBC71D5B6791002FB39E /* VGParallaxHeaderTests.swift */; };
+		D874EBD31D5B6791002FB39E /* VGParallaxHeaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874EBD21D5B6791002FB39E /* VGParallaxHeaderUITests.swift */; };
+		D874EBE21D5B67F7002FB39E /* VGParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D874EBE11D5B67F7002FB39E /* VGParallaxHeader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D874EBC41D5B6791002FB39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D874EBA71D5B6790002FB39E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D874EBAE1D5B6790002FB39E;
+			remoteInfo = VGParallaxHeader;
+		};
+		D874EBCF1D5B6791002FB39E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D874EBA71D5B6790002FB39E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D874EBAE1D5B6790002FB39E;
+			remoteInfo = VGParallaxHeader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6847E931D417F06E43E035DB /* Pods-VGParallaxHeader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGParallaxHeader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VGParallaxHeader/Pods-VGParallaxHeader.debug.xcconfig"; sourceTree = "<group>"; };
+		6AA860B22BA711F6A22A9F79 /* Pods-VGParallaxHeader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGParallaxHeader.release.xcconfig"; path = "Pods/Target Support Files/Pods-VGParallaxHeader/Pods-VGParallaxHeader.release.xcconfig"; sourceTree = "<group>"; };
+		6B4EEBA4E43FE4EEBAE1C224 /* Pods_VGParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D874EBAF1D5B6790002FB39E /* VGParallaxHeader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGParallaxHeader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D874EBB21D5B6790002FB39E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D874EBB41D5B6791002FB39E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D874EBB71D5B6791002FB39E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D874EBB91D5B6791002FB39E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D874EBBC1D5B6791002FB39E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D874EBBE1D5B6791002FB39E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D874EBC31D5B6791002FB39E /* VGParallaxHeaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGParallaxHeaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D874EBC71D5B6791002FB39E /* VGParallaxHeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGParallaxHeaderTests.swift; sourceTree = "<group>"; };
+		D874EBC91D5B6791002FB39E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D874EBCE1D5B6791002FB39E /* VGParallaxHeaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGParallaxHeaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D874EBD21D5B6791002FB39E /* VGParallaxHeaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGParallaxHeaderUITests.swift; sourceTree = "<group>"; };
+		D874EBD41D5B6791002FB39E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D874EBE11D5B67F7002FB39E /* VGParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGParallaxHeader.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D874EBAC1D5B6790002FB39E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64C332B92F8F2B47EAB69D40 /* Pods_VGParallaxHeader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D874EBC01D5B6791002FB39E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D874EBCB1D5B6791002FB39E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E6F08FB12C2E60BEF17E7D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6847E931D417F06E43E035DB /* Pods-VGParallaxHeader.debug.xcconfig */,
+				6AA860B22BA711F6A22A9F79 /* Pods-VGParallaxHeader.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D3FFAF0C718D418D4A3CB0EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B4EEBA4E43FE4EEBAE1C224 /* Pods_VGParallaxHeader.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D874EBA61D5B6790002FB39E = {
+			isa = PBXGroup;
+			children = (
+				D874EBB11D5B6790002FB39E /* VGParallaxHeader */,
+				D874EBC61D5B6791002FB39E /* VGParallaxHeaderTests */,
+				D874EBD11D5B6791002FB39E /* VGParallaxHeaderUITests */,
+				D874EBB01D5B6790002FB39E /* Products */,
+				6E6F08FB12C2E60BEF17E7D1 /* Pods */,
+				D3FFAF0C718D418D4A3CB0EF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D874EBB01D5B6790002FB39E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D874EBAF1D5B6790002FB39E /* VGParallaxHeader.app */,
+				D874EBC31D5B6791002FB39E /* VGParallaxHeaderTests.xctest */,
+				D874EBCE1D5B6791002FB39E /* VGParallaxHeaderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D874EBB11D5B6790002FB39E /* VGParallaxHeader */ = {
+			isa = PBXGroup;
+			children = (
+				D874EBE01D5B67B2002FB39E /* Classes */,
+				D874EBB21D5B6790002FB39E /* AppDelegate.swift */,
+				D874EBB41D5B6791002FB39E /* ViewController.swift */,
+				D874EBB61D5B6791002FB39E /* Main.storyboard */,
+				D874EBB91D5B6791002FB39E /* Assets.xcassets */,
+				D874EBBB1D5B6791002FB39E /* LaunchScreen.storyboard */,
+				D874EBBE1D5B6791002FB39E /* Info.plist */,
+			);
+			path = VGParallaxHeader;
+			sourceTree = "<group>";
+		};
+		D874EBC61D5B6791002FB39E /* VGParallaxHeaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D874EBC71D5B6791002FB39E /* VGParallaxHeaderTests.swift */,
+				D874EBC91D5B6791002FB39E /* Info.plist */,
+			);
+			path = VGParallaxHeaderTests;
+			sourceTree = "<group>";
+		};
+		D874EBD11D5B6791002FB39E /* VGParallaxHeaderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D874EBD21D5B6791002FB39E /* VGParallaxHeaderUITests.swift */,
+				D874EBD41D5B6791002FB39E /* Info.plist */,
+			);
+			path = VGParallaxHeaderUITests;
+			sourceTree = "<group>";
+		};
+		D874EBE01D5B67B2002FB39E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D874EBE11D5B67F7002FB39E /* VGParallaxHeader.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D874EBAE1D5B6790002FB39E /* VGParallaxHeader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D874EBD71D5B6791002FB39E /* Build configuration list for PBXNativeTarget "VGParallaxHeader" */;
+			buildPhases = (
+				6CC3D0D5A8DE05D913577C01 /* Check Pods Manifest.lock */,
+				D874EBAB1D5B6790002FB39E /* Sources */,
+				D874EBAC1D5B6790002FB39E /* Frameworks */,
+				D874EBAD1D5B6790002FB39E /* Resources */,
+				A9394AB6401B84CB3405D76B /* Embed Pods Frameworks */,
+				F26DFC7310A6B1255F1C437E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VGParallaxHeader;
+			productName = VGParallaxHeader;
+			productReference = D874EBAF1D5B6790002FB39E /* VGParallaxHeader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D874EBC21D5B6791002FB39E /* VGParallaxHeaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D874EBDA1D5B6791002FB39E /* Build configuration list for PBXNativeTarget "VGParallaxHeaderTests" */;
+			buildPhases = (
+				D874EBBF1D5B6791002FB39E /* Sources */,
+				D874EBC01D5B6791002FB39E /* Frameworks */,
+				D874EBC11D5B6791002FB39E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D874EBC51D5B6791002FB39E /* PBXTargetDependency */,
+			);
+			name = VGParallaxHeaderTests;
+			productName = VGParallaxHeaderTests;
+			productReference = D874EBC31D5B6791002FB39E /* VGParallaxHeaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D874EBCD1D5B6791002FB39E /* VGParallaxHeaderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D874EBDD1D5B6791002FB39E /* Build configuration list for PBXNativeTarget "VGParallaxHeaderUITests" */;
+			buildPhases = (
+				D874EBCA1D5B6791002FB39E /* Sources */,
+				D874EBCB1D5B6791002FB39E /* Frameworks */,
+				D874EBCC1D5B6791002FB39E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D874EBD01D5B6791002FB39E /* PBXTargetDependency */,
+			);
+			name = VGParallaxHeaderUITests;
+			productName = VGParallaxHeaderUITests;
+			productReference = D874EBCE1D5B6791002FB39E /* VGParallaxHeaderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D874EBA71D5B6790002FB39E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = xiAo_Ju;
+				TargetAttributes = {
+					D874EBAE1D5B6790002FB39E = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					D874EBC21D5B6791002FB39E = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D874EBAE1D5B6790002FB39E;
+					};
+					D874EBCD1D5B6791002FB39E = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = D874EBAE1D5B6790002FB39E;
+					};
+				};
+			};
+			buildConfigurationList = D874EBAA1D5B6790002FB39E /* Build configuration list for PBXProject "VGParallaxHeader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D874EBA61D5B6790002FB39E;
+			productRefGroup = D874EBB01D5B6790002FB39E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D874EBAE1D5B6790002FB39E /* VGParallaxHeader */,
+				D874EBC21D5B6791002FB39E /* VGParallaxHeaderTests */,
+				D874EBCD1D5B6791002FB39E /* VGParallaxHeaderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D874EBAD1D5B6790002FB39E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D874EBBD1D5B6791002FB39E /* LaunchScreen.storyboard in Resources */,
+				D874EBBA1D5B6791002FB39E /* Assets.xcassets in Resources */,
+				D874EBB81D5B6791002FB39E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D874EBC11D5B6791002FB39E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D874EBCC1D5B6791002FB39E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6CC3D0D5A8DE05D913577C01 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A9394AB6401B84CB3405D76B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VGParallaxHeader/Pods-VGParallaxHeader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F26DFC7310A6B1255F1C437E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VGParallaxHeader/Pods-VGParallaxHeader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D874EBAB1D5B6790002FB39E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D874EBB51D5B6791002FB39E /* ViewController.swift in Sources */,
+				D874EBB31D5B6790002FB39E /* AppDelegate.swift in Sources */,
+				D874EBE21D5B67F7002FB39E /* VGParallaxHeader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D874EBBF1D5B6791002FB39E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D874EBC81D5B6791002FB39E /* VGParallaxHeaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D874EBCA1D5B6791002FB39E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D874EBD31D5B6791002FB39E /* VGParallaxHeaderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D874EBC51D5B6791002FB39E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D874EBAE1D5B6790002FB39E /* VGParallaxHeader */;
+			targetProxy = D874EBC41D5B6791002FB39E /* PBXContainerItemProxy */;
+		};
+		D874EBD01D5B6791002FB39E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D874EBAE1D5B6790002FB39E /* VGParallaxHeader */;
+			targetProxy = D874EBCF1D5B6791002FB39E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D874EBB61D5B6791002FB39E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D874EBB71D5B6791002FB39E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D874EBBB1D5B6791002FB39E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D874EBBC1D5B6791002FB39E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D874EBD51D5B6791002FB39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D874EBD61D5B6791002FB39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D874EBD81D5B6791002FB39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6847E931D417F06E43E035DB /* Pods-VGParallaxHeader.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VGParallaxHeader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VGParallaxHeader.VGParallaxHeader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D874EBD91D5B6791002FB39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AA860B22BA711F6A22A9F79 /* Pods-VGParallaxHeader.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VGParallaxHeader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VGParallaxHeader.VGParallaxHeader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D874EBDB1D5B6791002FB39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VGParallaxHeaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VGParallaxHeader.VGParallaxHeaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VGParallaxHeader.app/VGParallaxHeader";
+			};
+			name = Debug;
+		};
+		D874EBDC1D5B6791002FB39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VGParallaxHeaderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VGParallaxHeader.VGParallaxHeaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VGParallaxHeader.app/VGParallaxHeader";
+			};
+			name = Release;
+		};
+		D874EBDE1D5B6791002FB39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VGParallaxHeaderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VGParallaxHeader.VGParallaxHeaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VGParallaxHeader;
+			};
+			name = Debug;
+		};
+		D874EBDF1D5B6791002FB39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VGParallaxHeaderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VGParallaxHeader.VGParallaxHeaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VGParallaxHeader;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D874EBAA1D5B6790002FB39E /* Build configuration list for PBXProject "VGParallaxHeader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D874EBD51D5B6791002FB39E /* Debug */,
+				D874EBD61D5B6791002FB39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D874EBD71D5B6791002FB39E /* Build configuration list for PBXNativeTarget "VGParallaxHeader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D874EBD81D5B6791002FB39E /* Debug */,
+				D874EBD91D5B6791002FB39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D874EBDA1D5B6791002FB39E /* Build configuration list for PBXNativeTarget "VGParallaxHeaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D874EBDB1D5B6791002FB39E /* Debug */,
+				D874EBDC1D5B6791002FB39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D874EBDD1D5B6791002FB39E /* Build configuration list for PBXNativeTarget "VGParallaxHeaderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D874EBDE1D5B6791002FB39E /* Debug */,
+				D874EBDF1D5B6791002FB39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D874EBA71D5B6790002FB39E /* Project object */;
+}
