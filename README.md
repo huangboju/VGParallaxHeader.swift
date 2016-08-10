@@ -1,0 +1,2 @@
+# VGParallaxHeader.swift
+VGParallaxHeader.swift 是 VGParallaxHeader的swift版本，UIScrollView的各种拉伸头部
