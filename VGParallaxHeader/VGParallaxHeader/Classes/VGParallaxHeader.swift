@@ -226,40 +226,40 @@ class VGParallaxHeader: UIView {
     }
     
     
-    func  setupContentViewMode() {
-        switch mode! {
-        case .Fill:
+    func setupContentViewMode() {
+        if mode == .Fill {
             addContentViewModeFillConstraints()
-        case .Top:
+        } else if mode == .Top {
             addContentViewModeTopConstraints()
-        case .TopFill:
+        } else if mode == .TopFill {
             addContentViewModeTopFillConstraints()
-        case .Center:
+        } else if mode == .Center {
             addContentViewModeCenterConstraints()
         }
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "contentInset" {
-            let edgeInsets = change!["new"]?.UIEdgeInsetsValue()
-            originalTopInset = edgeInsets!.top - (!insideTableView ? originalHeight : 0)
-            switch mode! {
-            case .Fill:
-                insetAwarePositionConstraint?.constant = originalTopInset / 2
-                insetAwareSizeConstraint?.constant = -originalTopInset
-            case .Top:
-                insetAwarePositionConstraint?.constant = originalTopInset
-            case .TopFill:
-                insetAwarePositionConstraint?.constant = originalTopInset
-                insetAwareSizeConstraint?.constant = -originalTopInset
-            case .Center:
-                insetAwarePositionConstraint?.constant = originalTopInset / 2
+            if let change = change {
+                if let edgeInsets = change["new"]?.UIEdgeInsetsValue() {
+                    originalTopInset = edgeInsets.top - (!insideTableView ? originalHeight : 0)
+                    if mode == .Fill {
+                        insetAwarePositionConstraint?.constant = originalTopInset / 2
+                        insetAwareSizeConstraint?.constant = -originalTopInset
+                    } else if mode == .Top {
+                        insetAwarePositionConstraint?.constant = originalTopInset
+                    } else if mode == .TopFill {
+                        insetAwarePositionConstraint?.constant = originalTopInset
+                        insetAwareSizeConstraint?.constant = -originalTopInset
+                    } else if mode == .Center {
+                        insetAwarePositionConstraint?.constant = originalTopInset / 2
+                    }
+                    
+                    if !insideTableView {
+                        scrollView?.contentOffset = CGPoint(x: 0, y: -scrollView!.contentInset.top)
+                    }
+                }
             }
-            
-            if !insideTableView {
-                scrollView?.contentOffset = CGPoint(x: 0, y: -scrollView!.contentInset.top)
-            }
-            
             updateStickyViewConstraints()
         }
     }
