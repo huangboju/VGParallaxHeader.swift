@@ -254,7 +254,6 @@ class VGParallaxHeader: UIView {
                     } else if mode == .Center {
                         insetAwarePositionConstraint?.constant = originalTopInset / 2
                     }
-                    
                     if !insideTableView {
                         scrollView?.contentOffset = CGPoint(x: 0, y: -scrollView!.contentInset.top)
                     }
@@ -265,7 +264,7 @@ class VGParallaxHeader: UIView {
     }
     
     override func willMoveToSuperview(newSuperview: UIView?) {
-        if (superview != nil && newSuperview == nil) {
+        if superview != nil && newSuperview == nil {
             if superview!.respondsToSelector(Selector("contentInset")) {
                 superview?.removeObserver(self, forKeyPath: "contentInset")
             }
@@ -278,7 +277,6 @@ class VGParallaxHeader: UIView {
         contentView.autoPinEdgeToSuperviewEdge(.Right, withInset: 0)
         
         insetAwarePositionConstraint = contentView.autoAlignAxis(.Horizontal, toSameAxisOfView: containerView!, withOffset: originalTopInset! / 2)
-        
         let constraint = contentView.autoSetDimension(.Height, toSize: originalHeight, relation: .GreaterThanOrEqual)
         constraint.priority = UILayoutPriorityRequired
         
