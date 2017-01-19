@@ -6,26 +6,26 @@ import UIKit
 import PureLayout
 
 enum VGParallaxHeaderMode {
-    case Center, Fill, Top, TopFill
+    case center, fill, top, topFill
 }
 
 enum VGParallaxHeaderStickyViewPosition {
-    case Bottom, Top
+    case bottom, top
 }
 
 enum VGParallaxHeaderShadowBehaviour {
-    case VHidden, Appearing, Disappearing, Always
+    case VHidden, appearing, disappearing, always
 }
 
 var UIScrollViewVGParallaxHeader: String = "UIScrollViewVGParallaxHeader"
 
 extension UIScrollView {
     
-    func parallaxHeaderView(view: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
+    func parallaxHeaderView(_ view: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
         parallaxHeaderView(view, mode: mode, height: height)
     }
     
-    func parallaxHeaderView(view: UIView, mode: VGParallaxHeaderMode, height: CGFloat) {
+    func parallaxHeaderView(_ view: UIView, mode: VGParallaxHeaderMode, height: CGFloat) {
         parallaxHeader = VGParallaxHeader(scrollView: self, contentView: view, mode: mode, height: height)
         
         parallaxHeader?.headerHeight = height
@@ -43,7 +43,7 @@ extension UIScrollView {
         
         // Watch for inset changes
         if let parallaxHeader = parallaxHeader {
-            addObserver(parallaxHeader, forKeyPath: "contentInset", options: .New, context: nil)
+            addObserver(parallaxHeader, forKeyPath: "contentInset", options: .new, context: nil)
         }
     }
     
@@ -85,7 +85,7 @@ extension UIScrollView {
             var height = -contentOffset.y + parallaxHeader!.originalHeight
             // Im not 100% sure if this will only speed up VGParallaxHeaderModeCenter
             // but on other modes it can be visible. 0.5px
-            if parallaxHeader!.mode == .Center {
+            if parallaxHeader!.mode == .center {
                 height = round(height)
             }
             // This is where the magic is happening
@@ -113,14 +113,15 @@ extension UIScrollView {
             // Remove All Subviews
             if subviews.count > 0 {
                 for subview in subviews {
-                    if subview.isMemberOfClass(VGParallaxHeader.self) {
+                    if subview.isMember(of: VGParallaxHeader.self) {
                         subview.removeFromSuperview()
                     }
                 }
             }
             
-            newValue?.insideTableView = isKindOfClass(UITableView.self)
             
+            newValue?.insideTableView = isKind(of: UITableView.self)
+
             // Add Parallax Header
             if newValue!.insideTableView {
                 (self as? UITableView)?.tableHeaderView = newValue
@@ -137,7 +138,7 @@ extension UIScrollView {
 class VGParallaxHeader: UIView {
     var mode: VGParallaxHeaderMode?
     
-    private var storeStickyViewPosition = VGParallaxHeaderStickyViewPosition.Top
+    private var storeStickyViewPosition = VGParallaxHeaderStickyViewPosition.top
     var stickyViewPosition: VGParallaxHeaderStickyViewPosition {
         set {
             storeStickyViewPosition = newValue
@@ -210,8 +211,8 @@ class VGParallaxHeader: UIView {
         containerView?.clipsToBounds = true
         
         if !insideTableView {
-            containerView?.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-            autoresizingMask = .FlexibleWidth
+            containerView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            autoresizingMask = .flexibleWidth
         }
         
         addSubview(containerView!)
@@ -227,31 +228,31 @@ class VGParallaxHeader: UIView {
     
     
     func setupContentViewMode() {
-        if mode == .Fill {
+        if mode == .fill {
             addContentViewModeFillConstraints()
-        } else if mode == .Top {
+        } else if mode == .top {
             addContentViewModeTopConstraints()
-        } else if mode == .TopFill {
+        } else if mode == .topFill {
             addContentViewModeTopFillConstraints()
-        } else if mode == .Center {
+        } else if mode == .center {
             addContentViewModeCenterConstraints()
         }
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentInset" {
             if let change = change {
-                if let edgeInsets = change["new"]?.UIEdgeInsetsValue() {
+                if let edgeInsets = (change[.newKey] as AnyObject).uiEdgeInsetsValue {
                     originalTopInset = edgeInsets.top - (!insideTableView ? originalHeight : 0)
-                    if mode == .Fill {
+                    if mode == .fill {
                         insetAwarePositionConstraint?.constant = originalTopInset / 2
                         insetAwareSizeConstraint?.constant = -originalTopInset
-                    } else if mode == .Top {
+                    } else if mode == .top {
                         insetAwarePositionConstraint?.constant = originalTopInset
-                    } else if mode == .TopFill {
+                    } else if mode == .topFill {
                         insetAwarePositionConstraint?.constant = originalTopInset
                         insetAwareSizeConstraint?.constant = -originalTopInset
-                    } else if mode == .Center {
+                    } else if mode == .center {
                         insetAwarePositionConstraint?.constant = originalTopInset / 2
                     }
                     if !insideTableView {
@@ -263,60 +264,60 @@ class VGParallaxHeader: UIView {
         }
     }
     
-    override func willMoveToSuperview(newSuperview: UIView?) {
-        if superview != nil && newSuperview == nil {
-            if superview!.respondsToSelector(Selector("contentInset")) {
-                superview?.removeObserver(self, forKeyPath: "contentInset")
+    override func willMove(toSuperview newSuperview: UIView?) {
+        if let superview = superview, newSuperview == nil {
+            if superview.responds(to: #selector(getter: UIScrollView.contentInset)) {
+                superview.removeObserver(self, forKeyPath: "contentInset")
             }
         }
     }
     
     // MARK: - VGParallaxHeader (Auto Layout)
     func addContentViewModeFillConstraints() {
-        contentView.autoPinEdgeToSuperviewEdge(.Left, withInset: 0)
-        contentView.autoPinEdgeToSuperviewEdge(.Right, withInset: 0)
+        contentView.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
+        contentView.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
         
-        insetAwarePositionConstraint = contentView.autoAlignAxis(.Horizontal, toSameAxisOfView: containerView!, withOffset: originalTopInset! / 2)
-        let constraint = contentView.autoSetDimension(.Height, toSize: originalHeight, relation: .GreaterThanOrEqual)
+        insetAwarePositionConstraint = contentView.autoAlignAxis(.horizontal, toSameAxisOf: containerView!, withOffset: originalTopInset! / 2)
+        let constraint = contentView.autoSetDimension(.height, toSize: originalHeight, relation: .greaterThanOrEqual)
         constraint.priority = UILayoutPriorityRequired
         
-        insetAwareSizeConstraint = contentView.autoMatchDimension(.Height, toDimension: .Height, ofView: containerView!, withOffset: -originalTopInset!)
+        insetAwareSizeConstraint = contentView.autoMatch(.height, to: .height, of: containerView!, withOffset: -originalTopInset!)
         
         insetAwareSizeConstraint?.priority = UILayoutPriorityDefaultHigh
     }
     
     func addContentViewModeTopConstraints() {
-        let array = contentView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsMake(originalTopInset!, 0, 0, 0), excludingEdge: .Bottom)
+        let array = contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(originalTopInset!, 0, 0, 0), excludingEdge: .bottom)
         insetAwarePositionConstraint = array.first
         
-        contentView.autoSetDimension(.Height, toSize: originalHeight)
+        contentView.autoSetDimension(.height, toSize: originalHeight)
     }
     
     func addContentViewModeTopFillConstraints() {
-        let array = contentView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets(top: originalTopInset!, left: 0, bottom: 0, right: 0), excludingEdge: .Bottom)
+        let array = contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset!, left: 0, bottom: 0, right: 0), excludingEdge: .bottom)
         insetAwarePositionConstraint = array.first
         
-        let constraint = contentView.autoSetDimension(.Height, toSize: originalHeight, relation: .GreaterThanOrEqual)
+        let constraint = contentView.autoSetDimension(.height, toSize: originalHeight, relation: .greaterThanOrEqual)
         constraint.priority = UILayoutPriorityRequired
         
-        insetAwareSizeConstraint = contentView.autoMatchDimension(.Height, toDimension: .Height, ofView: containerView!, withOffset: -originalTopInset)
+        insetAwareSizeConstraint = contentView.autoMatch(.height, to: .height, of: containerView!, withOffset: -originalTopInset)
         
         insetAwareSizeConstraint?.priority = UILayoutPriorityDefaultHigh
     }
     
     func addContentViewModeCenterConstraints() {
-        contentView.autoPinEdgeToSuperviewEdge(.Left, withInset: 0)
-        contentView.autoPinEdgeToSuperviewEdge(.Right, withInset: 0)
-        contentView.autoSetDimension(.Height, toSize: originalHeight)
+        contentView.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
+        contentView.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
+        contentView.autoSetDimension(.height, toSize: originalHeight)
         
-        insetAwarePositionConstraint = contentView.autoAlignAxis(.Horizontal, toSameAxisOfView: containerView!, withOffset: round(originalTopInset / 2))
+        insetAwarePositionConstraint = contentView.autoAlignAxis(.horizontal, toSameAxisOf: containerView!, withOffset: round(originalTopInset / 2))
     }
     
     
     // MARK: - VGParallaxHeader (Sticky View)
     func setStickyView(stickyView: UIView, height: CGFloat) {
         self.stickyView = stickyView
-        stickyViewHeightConstraint = self.stickyView.autoSetDimension(.Height, toSize: height)
+        stickyViewHeightConstraint = self.stickyView.autoSetDimension(.height, toSize: height)
     }
     
     func updateStickyViewConstraints() {
@@ -324,10 +325,10 @@ class VGParallaxHeader: UIView {
             if superview.isEqual(containerView) {
                 var nonStickyEdge: ALEdge!
                 switch stickyViewPosition {
-                case .Top:
-                    nonStickyEdge = .Bottom
-                case .Bottom:
-                    nonStickyEdge = .Top
+                case .top:
+                    nonStickyEdge = .bottom
+                case .bottom:
+                    nonStickyEdge = .top
                 }
                 
                 // Remove Previous Constraints
@@ -337,7 +338,7 @@ class VGParallaxHeader: UIView {
                 }
                 
                 // Add Constraints
-                stickyViewContraints = stickyView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: nonStickyEdge)
+                stickyViewContraints = stickyView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: nonStickyEdge)
             }
         }
     }
