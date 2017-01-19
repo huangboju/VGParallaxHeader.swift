@@ -17,8 +17,6 @@ enum VGParallaxHeaderShadowBehaviour {
     case VHidden, appearing, disappearing, always
 }
 
-var UIScrollViewVGParallaxHeader: String = "UIScrollViewVGParallaxHeader"
-
 extension UIScrollView {
     
     func parallaxHeaderView(_ view: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
@@ -31,12 +29,12 @@ extension UIScrollView {
         parallaxHeader?.headerHeight = height
         
         shouldPositionParallaxHeader()
-        
+
         // If UIScrollView adjust inset
         if !parallaxHeader!.insideTableView {
             var selfContentInset = contentInset
             selfContentInset.top += height
-            
+
             contentInset = selfContentInset
             contentOffset = CGPoint(x: 0, y: -selfContentInset.top)
         }
@@ -104,9 +102,13 @@ extension UIScrollView {
         }
     }
     
+    struct AssociatedKeys {
+        static var UIScrollViewVGParallaxHeader = "UIScrollViewVGParallaxHeader"
+    }
+    
     var parallaxHeader: VGParallaxHeader? {
         get {
-            return (objc_getAssociatedObject(self, &UIScrollViewVGParallaxHeader) as? VGParallaxHeader)
+            return (objc_getAssociatedObject(self, &AssociatedKeys.UIScrollViewVGParallaxHeader) as? VGParallaxHeader)
         }
 
         set{
@@ -130,7 +132,7 @@ extension UIScrollView {
                 addSubview(newValue!)
             }
             
-            objc_setAssociatedObject(self, &UIScrollViewVGParallaxHeader, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, &AssociatedKeys.UIScrollViewVGParallaxHeader, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
 }
@@ -228,13 +230,15 @@ class VGParallaxHeader: UIView {
     
     
     func setupContentViewMode() {
-        if mode == .fill {
+
+        switch mode! {
+        case .fill:
             addContentViewModeFillConstraints()
-        } else if mode == .top {
+        case .top:
             addContentViewModeTopConstraints()
-        } else if mode == .topFill {
+        case .topFill:
             addContentViewModeTopFillConstraints()
-        } else if mode == .center {
+        case .center:
             addContentViewModeCenterConstraints()
         }
     }
@@ -244,15 +248,16 @@ class VGParallaxHeader: UIView {
             if let change = change {
                 if let edgeInsets = (change[.newKey] as AnyObject).uiEdgeInsetsValue {
                     originalTopInset = edgeInsets.top - (!insideTableView ? originalHeight : 0)
-                    if mode == .fill {
+                    switch mode! {
+                    case .fill:
                         insetAwarePositionConstraint?.constant = originalTopInset / 2
                         insetAwareSizeConstraint?.constant = -originalTopInset
-                    } else if mode == .top {
+                    case .top:
                         insetAwarePositionConstraint?.constant = originalTopInset
-                    } else if mode == .topFill {
+                    case .topFill:
                         insetAwarePositionConstraint?.constant = originalTopInset
                         insetAwareSizeConstraint?.constant = -originalTopInset
-                    } else if mode == .center {
+                    case .center:
                         insetAwarePositionConstraint?.constant = originalTopInset / 2
                     }
                     if !insideTableView {
@@ -276,7 +281,7 @@ class VGParallaxHeader: UIView {
     func addContentViewModeFillConstraints() {
         contentView.autoPinEdge(toSuperviewEdge: .left, withInset: 0)
         contentView.autoPinEdge(toSuperviewEdge: .right, withInset: 0)
-        
+
         insetAwarePositionConstraint = contentView.autoAlignAxis(.horizontal, toSameAxisOf: containerView!, withOffset: originalTopInset! / 2)
         let constraint = contentView.autoSetDimension(.height, toSize: originalHeight, relation: .greaterThanOrEqual)
         constraint.priority = UILayoutPriorityRequired
@@ -317,9 +322,9 @@ class VGParallaxHeader: UIView {
     // MARK: - VGParallaxHeader (Sticky View)
     func setStickyView(stickyView: UIView, height: CGFloat) {
         self.stickyView = stickyView
-        stickyViewHeightConstraint = self.stickyView.autoSetDimension(.height, toSize: height)
+        stickyViewHeightConstraint = stickyView.autoSetDimension(.height, toSize: height)
     }
-    
+
     func updateStickyViewConstraints() {
         if let superview = stickyView.superview {
             if superview.isEqual(containerView) {
@@ -330,7 +335,7 @@ class VGParallaxHeader: UIView {
                 case .bottom:
                     nonStickyEdge = .top
                 }
-                
+
                 // Remove Previous Constraints
                 if let stickyViewContraints = stickyViewContraints {
                     stickyView.removeConstraints(stickyViewContraints)

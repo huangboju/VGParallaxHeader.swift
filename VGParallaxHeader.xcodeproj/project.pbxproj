@@ -16,6 +16,7 @@
 		D8D6C3D41E30BA3600F60208 /* VGParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D6C3D31E30BA3600F60208 /* VGParallaxHeader.swift */; };
 		D8D6C3D81E30BAA900F60208 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D6C3D61E30BAA100F60208 /* PureLayout.framework */; };
 		D8D6C3D91E30BAA900F60208 /* PureLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8D6C3D61E30BAA100F60208 /* PureLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D8F48CAC1E30C063006206CC /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48CAB1E30C063006206CC /* ArrayDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D8D6C3C91E30BA1E00F60208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8D6C3D31E30BA3600F60208 /* VGParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGParallaxHeader.swift; sourceTree = "<group>"; };
 		D8D6C3D61E30BAA100F60208 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
+		D8F48CAB1E30C063006206CC /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		D8D6C3B11E30BA1E00F60208 /* VGParallaxHeader */ = {
 			isa = PBXGroup;
 			children = (
+				D8F48CAB1E30C063006206CC /* ArrayDataSource.swift */,
 				D8D6C3D21E30BA3600F60208 /* Classes */,
 				D8D6C3B21E30BA1E00F60208 /* AppDelegate.swift */,
 				D8D6C3B41E30BA1E00F60208 /* ViewController.swift */,
@@ -240,6 +243,7 @@
 			files = (
 				D8D6C3B51E30BA1E00F60208 /* ViewController.swift in Sources */,
 				D8D6C3B31E30BA1E00F60208 /* AppDelegate.swift in Sources */,
+				D8F48CAC1E30C063006206CC /* ArrayDataSource.swift in Sources */,
 				D8D6C3D41E30BA3600F60208 /* VGParallaxHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +454,7 @@
 				D8D6C3CE1E30BA1E00F60208 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8D6C3CF1E30BA1E00F60208 /* Build configuration list for PBXNativeTarget "VGParallaxHeaderUITests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +463,7 @@
 				D8D6C3D11E30BA1E00F60208 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
