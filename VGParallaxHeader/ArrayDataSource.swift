@@ -9,13 +9,13 @@
 import UIKit
 
 class ArrayDataSource<T>: NSObject, UITableViewDataSource {
-    
+
     private var configureCellBlock: (_ cell: UITableViewCell, _ item: T) -> Void
-    
+
     private var items: [T]
     private var cellIdentifier: String
 
-    init(items: [T], cellIdentifier: String, configureCellBlock: @escaping ((_ cell: UITableViewCell, _ item: T) -> Void)) {
+    init(items: [T], cellIdentifier: String, configureCellBlock: @escaping((_ cell: UITableViewCell, _ item: T) -> Void)) {
         self.items = items
         self.cellIdentifier = cellIdentifier
         self.configureCellBlock = configureCellBlock
@@ -33,5 +33,5 @@ class ArrayDataSource<T>: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         configureCellBlock(cell, item(at: indexPath))
         return cell
-    }   
+    }
 }
