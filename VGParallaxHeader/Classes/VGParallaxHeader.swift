@@ -42,6 +42,7 @@ extension UIScrollView {
         // Watch for inset changes
         if let parallaxHeader = parallaxHeader {
             addObserver(parallaxHeader, forKeyPath: "contentInset", options: .new, context: nil)
+            addObserver(parallaxHeader, forKeyPath: "contentOffset", options: [.new, .old], context: nil)
         }
     }
 
@@ -76,7 +77,7 @@ extension UIScrollView {
 
     func positionTableViewParallaxHeader() {
         let scaleProgress = fmaxf(0, (1 - (Float((contentOffset.y + parallaxHeader!.originalTopInset!) / parallaxHeader!.originalHeight))))
-        parallaxHeader?.progress = scaleProgress
+        parallaxHeader?.progress = CGFloat(scaleProgress)
 
         if contentOffset.y < parallaxHeader!.originalHeight {
             // We can move height to if here because its uitableview
@@ -94,7 +95,7 @@ extension UIScrollView {
     func positionScrollViewParallaxHeader() {
         let height = -contentOffset.y
         let scaleProgress = fmaxf(0, Float((height / (parallaxHeader!.originalHeight + parallaxHeader!.originalTopInset))))
-        parallaxHeader?.progress = scaleProgress
+        parallaxHeader?.progress = CGFloat(scaleProgress)
 
         if contentOffset.y < 0 {
             // This is where the magic is happening
@@ -177,7 +178,7 @@ class VGParallaxHeader: UIView {
     }
 
     var insideTableView = false
-    var progress: Float?
+    var progress: CGFloat = 0
     var shadowBehaviour: VGParallaxHeaderShadowBehaviour?
 
     var containerView: UIView?
@@ -259,6 +260,8 @@ class VGParallaxHeader: UIView {
                 }
             }
             updateStickyViewConstraints()
+        }  else if keyPath == "contentOffset" {
+            (object as? UIScrollView)?.shouldPositionParallaxHeader()
         }
     }
 
@@ -338,5 +341,10 @@ class VGParallaxHeader: UIView {
                 stickyViewContraints = stickyView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: nonStickyEdge)
             }
         }
+    }
+    
+    deinit {
+        removeObserver(self, forKeyPath: "contentInset")
+        removeObserver(self, forKeyPath: "contentOffset")
     }
 }

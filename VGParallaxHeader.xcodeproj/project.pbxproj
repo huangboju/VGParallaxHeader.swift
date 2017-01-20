@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8125B1B1E31F07400FE210A /* UIColor+CrossFade.m in Sources */ = {isa = PBXBuildFile; fileRef = D8125B1A1E31F07400FE210A /* UIColor+CrossFade.m */; };
+		D8125B1D1E31F1FD00FE210A /* ThirdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8125B1C1E31F1FD00FE210A /* ThirdController.swift */; };
+		D8125B1F1E31FE3800FE210A /* FourthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8125B1E1E31FE3800FE210A /* FourthController.swift */; };
 		D8D6C3B31E30BA1E00F60208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D6C3B21E30BA1E00F60208 /* AppDelegate.swift */; };
 		D8D6C3B51E30BA1E00F60208 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D6C3B41E30BA1E00F60208 /* ViewController.swift */; };
 		D8D6C3B81E30BA1E00F60208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D6C3B61E30BA1E00F60208 /* Main.storyboard */; };
@@ -17,6 +20,8 @@
 		D8D6C3D81E30BAA900F60208 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D6C3D61E30BAA100F60208 /* PureLayout.framework */; };
 		D8D6C3D91E30BAA900F60208 /* PureLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8D6C3D61E30BAA100F60208 /* PureLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D8F48CAC1E30C063006206CC /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48CAB1E30C063006206CC /* ArrayDataSource.swift */; };
+		D8F48CAE1E31E32C006206CC /* SecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48CAD1E31E32C006206CC /* SecondController.swift */; };
+		D8F48CB01E31E47A006206CC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F48CAF1E31E47A006206CC /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D8125B191E31F07400FE210A /* UIColor+CrossFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CrossFade.h"; sourceTree = "<group>"; };
+		D8125B1A1E31F07400FE210A /* UIColor+CrossFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CrossFade.m"; sourceTree = "<group>"; };
+		D8125B1C1E31F1FD00FE210A /* ThirdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdController.swift; sourceTree = "<group>"; };
+		D8125B1E1E31FE3800FE210A /* FourthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthController.swift; sourceTree = "<group>"; };
 		D8D6C3AF1E30BA1E00F60208 /* VGParallaxHeader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGParallaxHeader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D6C3B21E30BA1E00F60208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8D6C3B41E30BA1E00F60208 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +66,9 @@
 		D8D6C3D31E30BA3600F60208 /* VGParallaxHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGParallaxHeader.swift; sourceTree = "<group>"; };
 		D8D6C3D61E30BAA100F60208 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		D8F48CAB1E30C063006206CC /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
+		D8F48CAD1E31E32C006206CC /* SecondController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondController.swift; sourceTree = SOURCE_ROOT; };
+		D8F48CAF1E31E47A006206CC /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D8F48CB31E31E737006206CC /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,8 @@
 		D8D6C3B11E30BA1E00F60208 /* VGParallaxHeader */ = {
 			isa = PBXGroup;
 			children = (
+				D8125B191E31F07400FE210A /* UIColor+CrossFade.h */,
+				D8125B1A1E31F07400FE210A /* UIColor+CrossFade.m */,
 				D8F48CAB1E30C063006206CC /* ArrayDataSource.swift */,
 				D8D6C3D21E30BA3600F60208 /* Classes */,
 				D8D6C3B21E30BA1E00F60208 /* AppDelegate.swift */,
@@ -108,6 +122,11 @@
 				D8D6C3B91E30BA1E00F60208 /* Assets.xcassets */,
 				D8D6C3BB1E30BA1E00F60208 /* LaunchScreen.storyboard */,
 				D8D6C3BE1E30BA1E00F60208 /* Info.plist */,
+				D8F48CAD1E31E32C006206CC /* SecondController.swift */,
+				D8F48CAF1E31E47A006206CC /* HeaderView.swift */,
+				D8F48CB31E31E737006206CC /* Bridging.h */,
+				D8125B1C1E31F1FD00FE210A /* ThirdController.swift */,
+				D8125B1E1E31FE3800FE210A /* FourthController.swift */,
 			);
 			path = VGParallaxHeader;
 			sourceTree = "<group>";
@@ -242,9 +261,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D6C3B51E30BA1E00F60208 /* ViewController.swift in Sources */,
+				D8F48CB01E31E47A006206CC /* HeaderView.swift in Sources */,
+				D8125B1F1E31FE3800FE210A /* FourthController.swift in Sources */,
 				D8D6C3B31E30BA1E00F60208 /* AppDelegate.swift in Sources */,
 				D8F48CAC1E30C063006206CC /* ArrayDataSource.swift in Sources */,
 				D8D6C3D41E30BA3600F60208 /* VGParallaxHeader.swift in Sources */,
+				D8125B1B1E31F07400FE210A /* UIColor+CrossFade.m in Sources */,
+				D8F48CAE1E31E32C006206CC /* SecondController.swift in Sources */,
+				D8125B1D1E31F1FD00FE210A /* ThirdController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,9 +410,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = VGParallaxHeader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.VGParallaxHeader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = VGParallaxHeader/Bridging.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -402,9 +428,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = VGParallaxHeader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huangboju.VGParallaxHeader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = VGParallaxHeader/Bridging.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
