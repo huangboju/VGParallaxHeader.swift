@@ -113,10 +113,8 @@ extension UIScrollView {
 
         set {
             // Remove All Subviews
-            for subview in subviews {
-                if subview.isMember(of: VGParallaxHeader.self) {
-                    subview.removeFromSuperview()
-                }
+            for subview in subviews where subview.isMember(of: VGParallaxHeader.self) {
+                subview.removeFromSuperview()
             }
 
             newValue?.insideTableView = isKind(of: UITableView.self)
@@ -143,7 +141,7 @@ class VGParallaxHeader: UIView {
             storeStickyViewPosition = newValue
             updateStickyViewConstraints()
         }
-
+  
         get {
             return storeStickyViewPosition
         }
@@ -154,8 +152,8 @@ class VGParallaxHeader: UIView {
         set {
             storeStickyViewHeightConstraint = newValue
             stickyView.removeConstraint(newValue)
-            if self.stickyView.superview === self.containerView {
-                self.stickyView.addConstraint(stickyViewHeightConstraint)
+            if stickyView.superview === containerView {
+                stickyView.addConstraint(stickyViewHeightConstraint)
             }
         }
 
@@ -226,7 +224,6 @@ class VGParallaxHeader: UIView {
     }
 
     func setupContentViewMode() {
-
         switch mode! {
         case .fill:
             addContentViewModeFillConstraints()
@@ -243,7 +240,7 @@ class VGParallaxHeader: UIView {
         if keyPath == "contentInset" {
             if let change = change {
                 if let edgeInsets = (change[.newKey] as AnyObject).uiEdgeInsetsValue {
-                    originalTopInset = edgeInsets.top - (!insideTableView ? originalHeight : 0)
+                    originalTopInset = edgeInsets.top - (insideTableView ? 0 : originalHeight)
                     switch mode! {
                     case .fill:
                         insetAwarePositionConstraint?.constant = originalTopInset / 2
