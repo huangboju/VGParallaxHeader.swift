@@ -17,7 +17,7 @@ class ViewController: UITableViewController {
         stickyLabel.backgroundColor = UIColor(red: 1, green: 0.749, blue: 0.976, alpha: 1)
         stickyLabel.textAlignment = .center
         stickyLabel.text = "Say hello to Sticky View :)"
-        tableView.parallaxHeaderView(HeaderView(), mode: .fill, height: 200)
+        tableView.parallaxHeaderView(HeaderView(), mode: .fill, height: 200, maxOffsetY: 120)
         tableView.parallaxHeader?.stickyViewPosition = .top
         tableView.parallaxHeader?.setStickyView(stickyView: stickyLabel, height: 40)
 

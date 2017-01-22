@@ -29,11 +29,11 @@ class FourthController: UIViewController, UIScrollViewDelegate {
         stickyLabel.backgroundColor = UIColor(red: 1, green: 0.749, blue: 0.976, alpha: 1)
         stickyLabel.textAlignment = .center
         stickyLabel.text = "Say hello to Sticky View :)"
-        scrollView.parallaxHeaderView(HeaderView(image: UIImage(named: "Grumpy-Cat")), mode: .fill, height: 230)
+        scrollView.parallaxHeaderView(HeaderView(image: UIImage(named: "Grumpy-Cat")), mode: .fill, height: 230, maxOffsetY: 120)
         scrollView.parallaxHeader?.stickyViewPosition = .bottom
         scrollView.parallaxHeader?.setStickyView(stickyView: stickyLabel, height: 40)
     }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.parallaxHeader?.stickyView?.alpha = scrollView.parallaxHeader!.progress
     }
