@@ -15,8 +15,19 @@ class HeaderView: UIView {
             let imageView = UIImageView(image: image)
             addSubview(imageView)
             
-            imageView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin, .flexibleHeight, .flexibleWidth]
+            
             imageView.contentMode = .scaleAspectFill
+            
+            // autoresizingMask http://www.cnblogs.com/GarveyCalvin/p/4165151.html
+//            imageView.autoresizingMask = [
+//                .flexibleLeftMargin,
+//                .flexibleRightMargin,
+//                .flexibleTopMargin,
+//                .flexibleBottomMargin,
+//                .flexibleHeight,
+//                .flexibleWidth
+//            ]
+            // 使用上面的方法也能实现图片下拉放大，但是图片缩放比例不对
             imageView.autoPinEdgesToSuperviewEdges()
         }
 
