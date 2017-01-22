@@ -26,8 +26,6 @@ extension UIScrollView {
     func parallaxHeaderView(_ view: UIView, mode: VGParallaxHeaderMode, height: CGFloat) {
         parallaxHeader = VGParallaxHeader(scrollView: self, contentView: view, mode: mode, height: height)
 
-        parallaxHeader?.headerHeight = height
-
         shouldPositionParallaxHeader()
 
         // If UIScrollView adjust inset
@@ -168,7 +166,7 @@ class VGParallaxHeader: UIView {
     var progress: CGFloat = 0
     var shadowBehaviour: VGParallaxHeaderShadowBehaviour?
 
-    var containerView: UIView?
+    var containerView: UIView!
     var contentView: UIView!
 
     var scrollView: UIScrollView?
@@ -189,6 +187,7 @@ class VGParallaxHeader: UIView {
 
         self.scrollView = scrollView
 
+        headerHeight = height
         originalHeight = height
         originalTopInset = scrollView.contentInset.top
 
@@ -196,7 +195,10 @@ class VGParallaxHeader: UIView {
         containerView?.clipsToBounds = true
 
         if !insideTableView {
-            containerView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            containerView?.autoresizingMask = [
+                .flexibleHeight,
+                .flexibleWidth
+            ]
             autoresizingMask = .flexibleWidth
         }
 
@@ -248,6 +250,9 @@ class VGParallaxHeader: UIView {
             }
             updateStickyViewConstraints()
         }  else if keyPath == "contentOffset" {
+            if (change?[.newKey] as AnyObject).cgPointValue.y > originalHeight - originalTopInset {
+                return
+            }
             (object as? UIScrollView)?.shouldPositionParallaxHeader()
         }
     }

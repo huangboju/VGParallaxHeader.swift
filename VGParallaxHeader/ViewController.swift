@@ -30,6 +30,10 @@ class ViewController: UITableViewController {
         tableView.dataSource = arrayDataSource
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigationController?.pushViewController(SecondController(), animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

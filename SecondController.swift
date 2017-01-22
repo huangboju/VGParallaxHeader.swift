@@ -24,8 +24,12 @@ class SecondController: UITableViewController {
         }
         tableView.dataSource = arrayDataSource
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+
+//        automaticallyAdjustsScrollViewInsets = false
+        edgesForExtendedLayout = [] // 解决tabbar遮挡tableview
+//        self.tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
-    
+
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let ratio = fmaxf(0, Float(scrollView.parallaxHeader!.progress) - 1)
         let firstColor = UIColor(red: 0.59, green: 0.85, blue: 0.27, alpha: 1)

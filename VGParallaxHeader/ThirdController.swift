@@ -27,6 +27,7 @@ class ThirdController: UIViewController {
         scrollView.parallaxHeaderView(HeaderView(), mode: .center, height: 200)
         scrollView.parallaxHeader?.stickyViewPosition = .top
         scrollView.parallaxHeader?.setStickyView(stickyView: stickyLabel, height: 40)
+        scrollView.parallaxHeader?.backgroundColor = UIColor.lightGray
     }
 
     override func didReceiveMemoryWarning() {
