@@ -35,7 +35,7 @@ class FourthController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.parallaxHeader?.stickyView.alpha = scrollView.parallaxHeader!.progress
+        scrollView.parallaxHeader?.stickyView?.alpha = scrollView.parallaxHeader!.progress
     }
 
     override func didReceiveMemoryWarning() {

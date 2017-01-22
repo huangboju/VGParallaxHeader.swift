@@ -14,7 +14,7 @@ enum VGParallaxHeaderStickyViewPosition {
 }
 
 enum VGParallaxHeaderShadowBehaviour {
-    case VHidden, appearing, disappearing, always
+    case vhidden, appearing, disappearing, always
 }
 
 extension UIScrollView {
@@ -136,44 +136,31 @@ extension UIScrollView {
 class VGParallaxHeader: UIView {
     var mode: VGParallaxHeaderMode?
 
-    private var storeStickyViewPosition = VGParallaxHeaderStickyViewPosition.top
-    var stickyViewPosition: VGParallaxHeaderStickyViewPosition {
-        set {
-            storeStickyViewPosition = newValue
+    /// Default is top
+    var stickyViewPosition: VGParallaxHeaderStickyViewPosition = .top {
+        didSet {
             updateStickyViewConstraints()
-        }
-  
-        get {
-            return storeStickyViewPosition
         }
     }
 
-    private var storeStickyViewHeightConstraint = NSLayoutConstraint()
-    var stickyViewHeightConstraint: NSLayoutConstraint {
-        set {
-            storeStickyViewHeightConstraint = newValue
-            stickyView.removeConstraint(newValue)
-            if stickyView.superview === containerView {
-                stickyView.addConstraint(stickyViewHeightConstraint)
+    var stickyViewHeightConstraint: NSLayoutConstraint? {
+        didSet {
+            if let stickyViewHeightConstraint = stickyViewHeightConstraint {
+                stickyView?.removeConstraint(stickyViewHeightConstraint)
+                if stickyView?.superview === containerView {
+                    stickyView?.addConstraint(stickyViewHeightConstraint)
+                }
             }
         }
-
-        get {
-            return storeStickyViewHeightConstraint
-        }
     }
 
-    private var storeStickyView = UIView()
-    var stickyView: UIView {
-        set {
-            storeStickyView = newValue
-            storeStickyView.translatesAutoresizingMaskIntoConstraints = false
-            containerView?.insertSubview(storeStickyView, aboveSubview: contentView!)
-            updateStickyViewConstraints()
-        }
-
-        get {
-            return storeStickyView
+    var stickyView: UIView? {
+        didSet {
+            if let stickyView = stickyView {
+                stickyView.translatesAutoresizingMaskIntoConstraints = false
+                containerView?.insertSubview(stickyView, aboveSubview: contentView!)
+                updateStickyViewConstraints()
+            }
         }
     }
 
@@ -288,15 +275,14 @@ class VGParallaxHeader: UIView {
     }
 
     func addContentViewModeTopConstraints() {
-        let array = contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(originalTopInset!, 0, 0, 0), excludingEdge: .bottom)
+        let array = contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset!, left: 0, bottom: 0, right: 0), excludingEdge: .bottom)
         insetAwarePositionConstraint = array.first
 
         contentView.autoSetDimension(.height, toSize: originalHeight)
     }
 
     func addContentViewModeTopFillConstraints() {
-        let array = contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset!, left: 0, bottom: 0, right: 0), excludingEdge: .bottom)
-        insetAwarePositionConstraint = array.first
+        insetAwarePositionConstraint = contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset!, left: 0, bottom: 0, right: 0), excludingEdge: .bottom).first
 
         let constraint = contentView.autoSetDimension(.height, toSize: originalHeight, relation: .greaterThanOrEqual)
         constraint.priority = UILayoutPriorityRequired
@@ -321,7 +307,7 @@ class VGParallaxHeader: UIView {
     }
 
     func updateStickyViewConstraints() {
-        if let superview = stickyView.superview {
+        if let superview = stickyView?.superview {
             if superview.isEqual(containerView) {
                 var nonStickyEdge: ALEdge!
                 switch stickyViewPosition {
@@ -333,16 +319,16 @@ class VGParallaxHeader: UIView {
 
                 // Remove Previous Constraints
                 if let stickyViewContraints = stickyViewContraints {
-                    stickyView.removeConstraints(stickyViewContraints)
+                    stickyView?.removeConstraints(stickyViewContraints)
                     containerView?.removeConstraints(stickyViewContraints)
                 }
 
                 // Add Constraints
-                stickyViewContraints = stickyView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: nonStickyEdge)
+                stickyViewContraints = stickyView?.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: nonStickyEdge)
             }
         }
     }
-    
+
     deinit {
         removeObserver(self, forKeyPath: "contentInset")
         removeObserver(self, forKeyPath: "contentOffset")

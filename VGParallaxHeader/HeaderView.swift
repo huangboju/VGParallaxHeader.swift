@@ -19,14 +19,14 @@ class HeaderView: UIView {
             imageView.contentMode = .scaleAspectFill
             imageView.autoPinEdgesToSuperviewEdges()
         }
-        
+
         let descLable = UILabel()
         descLable.text = "My position is fixed"
         descLable.textAlignment = .center
         descLable.font = UIFont.systemFont(ofSize: 14)
         descLable.textColor = .white
         addSubview(descLable)
-        
+
         descLable.autoAlignAxis(.vertical, toSameAxisOf: self)
         descLable.autoPinEdge(.leading, to: .leading, of: self, withOffset: 15)
         descLable.autoPinEdge(.top, to: .top, of: self, withOffset: 50)
@@ -37,7 +37,7 @@ class HeaderView: UIView {
         textLabel.font = UIFont.systemFont(ofSize: 30)
         textLabel.textColor = .white
         addSubview(textLabel)
-        
+
         textLabel.autoCenterInSuperview()
         textLabel.autoPinEdge(.leading, to: .leading, of: descLable)
     }
