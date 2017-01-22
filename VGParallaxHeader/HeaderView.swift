@@ -14,10 +14,7 @@ class HeaderView: UIView {
         if let image = image {
             let imageView = UIImageView(image: image)
             addSubview(imageView)
-            
-            
             imageView.contentMode = .scaleAspectFill
-            
             // autoresizingMask http://www.cnblogs.com/GarveyCalvin/p/4165151.html
 //            imageView.autoresizingMask = [
 //                .flexibleLeftMargin,

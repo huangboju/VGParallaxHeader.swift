@@ -26,8 +26,8 @@ class SecondController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
 //        automaticallyAdjustsScrollViewInsets = false
-        edgesForExtendedLayout = [] // 解决tabbar遮挡tableview
-//        self.tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        edgesForExtendedLayout = [] // 解决tabbar遮挡tableview,但是会导致选中这个页面时tabbar变灰，在Appdelegate做window?.backgroundColor = UIColor.white，即可修复
+//        tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
