@@ -22,12 +22,12 @@ enum VGParallaxHeaderShadowBehaviour {
 
 extension UIScrollView {
 
-    func parallaxHeaderView(_ view: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
-        parallaxHeaderView(view, mode: mode, height: height)
+    func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
+        parallaxHeaderView(contentView, mode: mode, height: height)
     }
 
-    func parallaxHeaderView(_ view: UIView, mode: VGParallaxHeaderMode, height: CGFloat, maxOffsetY: CGFloat = .infinity) {
-        parallaxHeader = VGParallaxHeader(scrollView: self, contentView: view, mode: mode, height: height, maxOffsetY: maxOffsetY)
+    func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, maxOffsetY: CGFloat = .infinity) {
+        parallaxHeader = VGParallaxHeader(scrollView: self, contentView: contentView, mode: mode, height: height, maxOffsetY: maxOffsetY)
 
         shouldPositionParallaxHeader()
 
