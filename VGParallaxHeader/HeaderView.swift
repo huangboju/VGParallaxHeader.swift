@@ -8,22 +8,22 @@
 
 class HeaderView: UIView {
     init(image: UIImage? = nil) {
-       super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         backgroundColor = UIColor(red: 1, green: 0.5, blue: 1, alpha: 1)
-        
+
         if let image = image {
             let imageView = UIImageView(image: image)
             addSubview(imageView)
             imageView.contentMode = .scaleAspectFill
             // autoresizingMask http://www.cnblogs.com/GarveyCalvin/p/4165151.html
-//            imageView.autoresizingMask = [
-//                .flexibleLeftMargin,
-//                .flexibleRightMargin,
-//                .flexibleTopMargin,
-//                .flexibleBottomMargin,
-//                .flexibleHeight,
-//                .flexibleWidth
-//            ]
+            //            imageView.autoresizingMask = [
+            //                .flexibleLeftMargin,
+            //                .flexibleRightMargin,
+            //                .flexibleTopMargin,
+            //                .flexibleBottomMargin,
+            //                .flexibleHeight,
+            //                .flexibleWidth
+            //            ]
             // 使用上面的方法也能实现图片下拉放大，但是图片缩放比例不对
             imageView.autoPinEdgesToSuperviewEdges()
         }
@@ -49,7 +49,7 @@ class HeaderView: UIView {
         textLabel.autoCenterInSuperview()
         textLabel.autoPinEdge(.leading, to: .leading, of: descLable)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

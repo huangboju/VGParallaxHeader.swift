@@ -7,7 +7,7 @@
 //
 
 class ThirdController: UIViewController {
-    
+
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView(frame: self.view.frame)
         scrollView.backgroundColor = .white
@@ -19,7 +19,7 @@ class ThirdController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
         view.addSubview(scrollView)
-        
+
         let stickyLabel = UILabel(frame: .zero)
         stickyLabel.backgroundColor = UIColor(red: 1, green: 0.749, blue: 0.976, alpha: 1)
         stickyLabel.textAlignment = .center

@@ -20,11 +20,9 @@ class FourthController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         view.addSubview(scrollView)
-        
+
         let stickyLabel = UILabel(frame: .zero)
         stickyLabel.backgroundColor = UIColor(red: 1, green: 0.749, blue: 0.976, alpha: 1)
         stickyLabel.textAlignment = .center
@@ -42,5 +40,4 @@ class FourthController: UIViewController, UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }

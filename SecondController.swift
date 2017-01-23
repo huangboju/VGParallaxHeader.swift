@@ -7,14 +7,14 @@
 //
 
 class SecondController: UITableViewController {
-    
+
     var arrayDataSource: ArrayDataSource<String>?
-    
+
     let headerView = HeaderView()
- 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         headerView.backgroundColor = UIColor(red: 0.59, green: 0.85, blue: 0.27, alpha: 1)
         tableView.parallaxHeaderView(headerView, mode: .topFill, height: 200)
 
@@ -25,9 +25,9 @@ class SecondController: UITableViewController {
         tableView.dataSource = arrayDataSource
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
-//        automaticallyAdjustsScrollViewInsets = false
+        //        automaticallyAdjustsScrollViewInsets = false
         edgesForExtendedLayout = [] // 解决tabbar遮挡tableview,但是会导致选中这个页面时tabbar变灰，在Appdelegate做window?.backgroundColor = UIColor.white，即可修复
-//        tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        //        tableView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
