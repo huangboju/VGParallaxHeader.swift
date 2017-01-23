@@ -105,10 +105,9 @@ extension UIScrollView {
             parallaxHeader?.frame = CGRect(x: 0, y: y, width: frame.width, height: height)
         }
     }
-    
+
     private func lockScorllView(condition: Bool, handle: () -> Void) {
-        let y = contentOffset.y
-        if y < parallaxHeader!.maxOffsetY {
+        if contentOffset.y < parallaxHeader!.maxOffsetY {
             contentOffset.y = parallaxHeader!.maxOffsetY
         } else if condition {
             handle()
