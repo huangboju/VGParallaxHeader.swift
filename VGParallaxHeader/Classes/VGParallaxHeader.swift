@@ -10,6 +10,7 @@ enum VGParallaxHeaderMode {
     case fill /// 拉伸效果，上滑时会跟随UIScrollView偏移
     case top
     case topFill /// 拉伸效果，上滑时不会跟随UIScrollView偏移
+    case fillHidden
 }
 
 enum VGParallaxHeaderStickyViewPosition {
@@ -78,15 +79,10 @@ extension UIScrollView {
 
     func positionTableViewParallaxHeader() {
         let y = contentOffset.y
-        let scaleProgress = fmaxf(0, (1 - (Float((contentOffset.y + parallaxHeader!.originalTopInset) / parallaxHeader!.originalHeight))))
+        let scaleProgress = fmaxf(0, (1 - (Float((y + parallaxHeader!.originalTopInset) / parallaxHeader!.originalHeight))))
         parallaxHeader?.progress = CGFloat(scaleProgress)
 
-        if y < parallaxHeader!.maxOffsetY {
-            contentOffset.y = parallaxHeader!.maxOffsetY
-            return
-        }
-
-        if y < parallaxHeader!.originalHeight {
+        lockScorllView(condition: y < parallaxHeader!.originalHeight) {
             // We can move height to if here because its uitableview
             var height = -y + parallaxHeader!.originalHeight
             // Im not 100% sure if this will only speed up VGParallaxHeaderModeCenter
@@ -100,19 +96,22 @@ extension UIScrollView {
     }
 
     func positionScrollViewParallaxHeader() {
-        let y = contentOffset.y
-        let height = -y
+        let y = contentOffset.y, height = -y
         let scaleProgress = fmaxf(0, Float((height / (parallaxHeader!.originalHeight + parallaxHeader!.originalTopInset))))
         parallaxHeader?.progress = CGFloat(scaleProgress)
 
-        if y < parallaxHeader!.maxOffsetY {
-            contentOffset.y = parallaxHeader!.maxOffsetY
-            return
-        }
-
-        if y < 0 {
+        lockScorllView(condition: y < 0) {
             // This is where the magic is happening
             parallaxHeader?.frame = CGRect(x: 0, y: y, width: frame.width, height: height)
+        }
+    }
+    
+    private func lockScorllView(condition: Bool, handle: () -> Void) {
+        let y = contentOffset.y
+        if y < parallaxHeader!.maxOffsetY {
+            contentOffset.y = parallaxHeader!.maxOffsetY
+        } else if condition {
+            handle()
         }
     }
 
@@ -239,6 +238,8 @@ class VGParallaxHeader: UIView {
             addContentViewModeTopFillConstraints()
         case .center:
             addContentViewModeCenterConstraints()
+        default:
+            break
         }
     }
 
@@ -259,6 +260,8 @@ class VGParallaxHeader: UIView {
                         insetAwareSizeConstraint?.constant = -originalTopInset
                     case .center:
                         insetAwarePositionConstraint?.constant = originalTopInset / 2
+                    default:
+                        break
                     }
                     if !insideTableView {
                         scrollView?.contentOffset = CGPoint(x: 0, y: -scrollView!.contentInset.top)
