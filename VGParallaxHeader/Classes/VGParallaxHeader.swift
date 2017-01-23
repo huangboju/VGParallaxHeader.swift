@@ -5,29 +5,29 @@
 import UIKit
 import PureLayout
 
-enum VGParallaxHeaderMode {
+public enum VGParallaxHeaderMode {
     case center
     case fill /// 拉伸效果，上滑时会跟随UIScrollView偏移
     case top
     case topFill /// 拉伸效果，上滑时不会跟随UIScrollView偏移
-    case fillHidden
+    case fillOffset(UIOffset)
 }
 
-enum VGParallaxHeaderStickyViewPosition {
+public enum VGParallaxHeaderStickyViewPosition {
     case bottom, top
 }
 
-enum VGParallaxHeaderShadowBehaviour {
+public enum VGParallaxHeaderShadowBehaviour {
     case vhidden, appearing, disappearing, always
 }
 
 extension UIScrollView {
 
-    func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
+    public func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
         parallaxHeaderView(contentView, mode: mode, height: height)
     }
 
-    func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, maxOffsetY: CGFloat = .infinity) {
+    public func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, maxOffsetY: CGFloat = .infinity) {
         parallaxHeader = VGParallaxHeader(scrollView: self, contentView: contentView, mode: mode, height: height, maxOffsetY: maxOffsetY)
 
         shouldPositionParallaxHeader()
@@ -87,8 +87,10 @@ extension UIScrollView {
             var height = -y + parallaxHeader!.originalHeight
             // Im not 100% sure if this will only speed up VGParallaxHeaderModeCenter
             // but on other modes it can be visible. 0.5px
-            if parallaxHeader!.mode == .center {
+            switch parallaxHeader!.mode! {
+            case .center:
                 height = round(height)
+            default: break
             }
             // This is where the magic is happening
             parallaxHeader?.containerView?.frame = CGRect(x: 0, y: y, width: frame.width, height: height)
