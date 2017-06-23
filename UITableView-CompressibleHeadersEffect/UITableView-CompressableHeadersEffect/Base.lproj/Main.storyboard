@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UITableView_CompressibleHeadersEffect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P4i-4n-E3k">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="ki6-mD-KJJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lakecrop.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-Eb-j1F">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="330"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compressible Header" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJ0-it-Zhw">
+                                            <rect key="frame" x="0.0" y="129.5" width="600" height="72"/>
+                                            <fontDescription key="fontDescription" name="KhmerSangamMN" family="Khmer Sangam MN" pointSize="36"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="300" id="DOm-7f-jjE"/>
+                                        <constraint firstItem="kOX-Eb-j1F" firstAttribute="top" secondItem="ki6-mD-KJJ" secondAttribute="top" id="DPC-Kc-MHA"/>
+                                        <constraint firstItem="pJ0-it-Zhw" firstAttribute="leading" secondItem="ki6-mD-KJJ" secondAttribute="leading" id="OeY-XT-eGA"/>
+                                        <constraint firstAttribute="trailing" secondItem="pJ0-it-Zhw" secondAttribute="trailing" id="Qqk-P8-Hei"/>
+                                        <constraint firstAttribute="bottom" secondItem="kOX-Eb-j1F" secondAttribute="bottom" id="a1B-NW-6Aj"/>
+                                        <constraint firstItem="pJ0-it-Zhw" firstAttribute="centerY" secondItem="ki6-mD-KJJ" secondAttribute="centerY" id="bGr-JM-f5m"/>
+                                        <constraint firstAttribute="trailing" secondItem="kOX-Eb-j1F" secondAttribute="trailing" id="eG4-04-JKr"/>
+                                        <constraint firstItem="kOX-Eb-j1F" firstAttribute="leading" secondItem="ki6-mD-KJJ" secondAttribute="leading" id="o2C-r9-eur"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="DOm-7f-jjE"/>
+                                        </mask>
+                                    </variation>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="IVe-Qu-VK6"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VWH-uK-b0l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="P4i-4n-E3k" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Plh-fI-eXB"/>
+                            <constraint firstItem="P4i-4n-E3k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SHF-NY-tLW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P4i-4n-E3k" secondAttribute="bottom" id="aqR-yN-NrP"/>
+                            <constraint firstAttribute="trailing" secondItem="P4i-4n-E3k" secondAttribute="trailing" id="p0t-Sb-Ypl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="P4i-4n-E3k" id="1QC-e3-pcn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="387"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lakecrop.JPG" width="554" height="831"/>
+    </resources>
+</document>

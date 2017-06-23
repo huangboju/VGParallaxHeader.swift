@@ -23,7 +23,7 @@ public enum VGParallaxHeaderShadowBehaviour {
 
 extension UIScrollView {
 
-    public func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour: VGParallaxHeaderShadowBehaviour) {
+    public func parallaxHeaderView(_ contentView: UIView, mode: VGParallaxHeaderMode, height: CGFloat, shadowBehaviour _: VGParallaxHeaderShadowBehaviour) {
         parallaxHeaderView(contentView, mode: mode, height: height)
     }
 
@@ -214,18 +214,18 @@ class VGParallaxHeader: UIView {
         if !insideTableView {
             containerView?.autoresizingMask = [
                 .flexibleHeight,
-                .flexibleWidth
+                .flexibleWidth,
             ]
         }
 
         addSubview(containerView!)
         self.contentView = contentView
         self.contentView?.translatesAutoresizingMaskIntoConstraints = false
-        self.containerView?.addSubview(self.contentView!)
+        containerView?.addSubview(self.contentView!)
         setupContentViewMode()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -244,7 +244,7 @@ class VGParallaxHeader: UIView {
         }
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context _: UnsafeMutableRawPointer?) {
         if keyPath == "contentInset" {
             if let change = change {
                 if let edgeInsets = (change[.newKey] as AnyObject).uiEdgeInsetsValue {
@@ -270,7 +270,7 @@ class VGParallaxHeader: UIView {
                 }
             }
             updateStickyViewConstraints()
-        }  else if keyPath == "contentOffset" {
+        } else if keyPath == "contentOffset" {
             let y = (change?[.newKey] as AnyObject).cgPointValue.y
             if y > originalHeight - originalTopInset {
                 return
@@ -280,10 +280,9 @@ class VGParallaxHeader: UIView {
     }
 
     override func willMove(toSuperview newSuperview: UIView?) {
-        if let superview = superview, newSuperview == nil {
-            if superview.responds(to: #selector(getter: UIScrollView.contentInset)) {
-                superview.removeObserver(self, forKeyPath: "contentInset")
-            }
+        guard let superview = superview, newSuperview == nil else { return }
+        if superview.responds(to: #selector(getter: UIScrollView.contentInset)) {
+            superview.removeObserver(self, forKeyPath: "contentInset")
         }
     }
 

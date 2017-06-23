@@ -19,7 +19,7 @@ class SecondController: UITableViewController {
         tableView.parallaxHeaderView(headerView, mode: .topFill, height: 200)
 
         let photos = (0 ... 20).map { $0.description }
-        arrayDataSource = ArrayDataSource(items: photos, cellIdentifier: "cell") { (cell, item) in
+        arrayDataSource = ArrayDataSource(items: photos, cellIdentifier: "cell") { cell, item in
             cell.textLabel?.text = item
         }
         tableView.dataSource = arrayDataSource

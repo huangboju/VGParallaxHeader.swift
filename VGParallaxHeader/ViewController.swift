@@ -24,14 +24,14 @@ class ViewController: UITableViewController {
         tableView.tableFooterView = UIView()
 
         let photos = (0 ... 20).map { $0.description }
-        arrayDataSource = ArrayDataSource(items: photos, cellIdentifier: "cell") { (cell, item) in
+        arrayDataSource = ArrayDataSource(items: photos, cellIdentifier: "cell") { cell, item in
             cell.textLabel?.text = item
         }
         tableView.dataSource = arrayDataSource
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
         navigationController?.pushViewController(SecondController(), animated: true)
     }
 

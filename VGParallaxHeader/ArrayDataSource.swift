@@ -13,7 +13,7 @@ class ArrayDataSource<T>: NSObject, UITableViewDataSource {
     private var items: [T]
     private var cellIdentifier: String
 
-    init(items: [T], cellIdentifier: String, configureCellBlock: @escaping((_ cell: UITableViewCell, _ item: T) -> Void)) {
+    init(items: [T], cellIdentifier: String, configureCellBlock: @escaping ((_ cell: UITableViewCell, _ item: T) -> Void)) {
         self.items = items
         self.cellIdentifier = cellIdentifier
         self.configureCellBlock = configureCellBlock
@@ -23,7 +23,7 @@ class ArrayDataSource<T>: NSObject, UITableViewDataSource {
         return items[indexPath.row]
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return items.count
     }
 
