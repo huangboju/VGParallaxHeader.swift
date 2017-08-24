@@ -184,7 +184,7 @@ class VGParallaxHeader: UIView {
     var containerView: UIView!
     var contentView: UIView!
 
-    var scrollView: UIScrollView?
+    weak var scrollView: UIScrollView?
 
     var originalTopInset: CGFloat = 0
     var originalHeight: CGFloat = 0
@@ -281,9 +281,9 @@ class VGParallaxHeader: UIView {
 
     override func willMove(toSuperview newSuperview: UIView?) {
         guard let superview = superview, newSuperview == nil else { return }
-        if superview.responds(to: #selector(getter: UIScrollView.contentInset)) {
-            superview.removeObserver(self, forKeyPath: "contentInset")
-        }
+        guard superview.responds(to: #selector(getter: UIScrollView.contentInset)) else { return }
+        superview.removeObserver(self, forKeyPath: "contentInset")
+        superview.removeObserver(self, forKeyPath: "contentOffset")
     }
 
     // MARK: - VGParallaxHeader (Auto Layout)
@@ -333,30 +333,22 @@ class VGParallaxHeader: UIView {
     }
 
     func updateStickyViewConstraints() {
-        if let superview = stickyView?.superview {
-            if superview.isEqual(containerView) {
-                var nonStickyEdge: ALEdge!
-                switch stickyViewPosition {
-                case .top:
-                    nonStickyEdge = .bottom
-                case .bottom:
-                    nonStickyEdge = .top
-                }
-
-                // Remove Previous Constraints
-                if let stickyViewContraints = stickyViewContraints {
-                    stickyView?.removeConstraints(stickyViewContraints)
-                    containerView?.removeConstraints(stickyViewContraints)
-                }
-
-                // Add Constraints
-                stickyViewContraints = stickyView?.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: nonStickyEdge)
-            }
+        guard let superview = stickyView?.superview, superview.isEqual(containerView) else { return }
+        let nonStickyEdge: ALEdge
+        switch stickyViewPosition {
+        case .top:
+            nonStickyEdge = .bottom
+        case .bottom:
+            nonStickyEdge = .top
         }
-    }
 
-    deinit {
-        removeObserver(self, forKeyPath: "contentInset")
-        removeObserver(self, forKeyPath: "contentOffset")
+        // Remove Previous Constraints
+        if let stickyViewContraints = stickyViewContraints {
+            stickyView?.removeConstraints(stickyViewContraints)
+            containerView?.removeConstraints(stickyViewContraints)
+        }
+
+        // Add Constraints
+        stickyViewContraints = stickyView?.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: nonStickyEdge)
     }
 }
