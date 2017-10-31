@@ -293,11 +293,11 @@ class VGParallaxHeader: UIView {
 
         insetAwarePositionConstraint = contentView.autoAlignAxis(.horizontal, toSameAxisOf: containerView!, withOffset: originalTopInset / 2)
         let constraint = contentView.autoSetDimension(.height, toSize: originalHeight, relation: .greaterThanOrEqual)
-        constraint.priority = UILayoutPriorityRequired
+        constraint.priority = UILayoutPriority.required
 
         insetAwareSizeConstraint = contentView.autoMatch(.height, to: .height, of: containerView!, withOffset: -originalTopInset)
 
-        insetAwareSizeConstraint?.priority = UILayoutPriorityDefaultHigh
+        insetAwareSizeConstraint?.priority = UILayoutPriority.defaultHigh
     }
 
     func addContentViewModeTopConstraints() {
@@ -311,11 +311,11 @@ class VGParallaxHeader: UIView {
         insetAwarePositionConstraint = contentView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: originalTopInset, left: 0, bottom: 0, right: 0), excludingEdge: .bottom).first
 
         let constraint = contentView.autoSetDimension(.height, toSize: originalHeight, relation: .greaterThanOrEqual)
-        constraint.priority = UILayoutPriorityRequired
+        constraint.priority = UILayoutPriority.required
 
         insetAwareSizeConstraint = contentView.autoMatch(.height, to: .height, of: containerView!, withOffset: -originalTopInset)
 
-        insetAwareSizeConstraint?.priority = UILayoutPriorityDefaultHigh
+        insetAwareSizeConstraint?.priority = UILayoutPriority.defaultHigh
     }
 
     func addContentViewModeCenterConstraints() {
