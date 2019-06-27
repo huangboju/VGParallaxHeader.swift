@@ -293,11 +293,11 @@ class VGParallaxHeader: UIView {
 
         insetAwarePositionConstraint = contentView.autoAlignAxis(.horizontal, toSameAxisOf: containerView!, withOffset: originalTopInset / 2)
         let constraint = contentView.autoSetDimension(.height, toSize: originalHeight, relation: .greaterThanOrEqual)
-        constraint.priority = UILayoutPriority.required
+        constraint.priority = .required
 
         insetAwareSizeConstraint = contentView.autoMatch(.height, to: .height, of: containerView!, withOffset: -originalTopInset)
 
-        insetAwareSizeConstraint?.priority = UILayoutPriority.defaultHigh
+        insetAwareSizeConstraint?.priority = .defaultHigh
     }
 
     func addContentViewModeTopConstraints() {
